@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三栏式布局--IFE2016</title>
+	<style type="text/css">
+	body{
+		padding: 20px;
+		border-color: #999;
+		font-family: "微软雅黑"
+	}
+	.box{
+		background-color: #eee;
+		padding: 20px;
+		border: 1px solid #999;
+		min-width: 600px;
+	}
+	.left{
+		width: 200px;
+		padding: 20px;
+		background-color: #fff;
+		border: 1px solid #999;	
+		float: left;
+
+	}
+	.box:after{
+		display:block; 
+		content:'clear'; 
+		clear:both; 
+		line-height:0; 
+		visibility:hidden;
+
+	}
+
+	.left_content{
+		width: 100px;
+		height:80px;
+		border: 1px solid #999;
+		background-color: #eee;
+		float: left;
+		
+	}
+	.left_content img{
+		width: 100px;
+		height: 80px;
+	}
+	.left h3{
+		text-align: center;
+	}
+	.content{
+		margin-left: 260px;
+ 		margin-right: 142px;
+		padding: 20px;
+		background-color: white;
+		border: 1px solid #999;
+	}
+	.right{
+		width:120px;
+		background-color: white;
+		border: 1px solid #999;
+		float: right;
+	}
+	.right_content{
+		width: 80px;
+		height: 80px;
+		margin: 20px;
+		background-color: #eee;
+		border: 1px solid #999;
+	}
+	.member_name{
+		width: 80px;
+		height: 20px;
+		background-color: #ddd;
+		margin-bottom: 20px;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="left">
+			<div class="left_content">
+				<img src="images/00.jpg">	
+			</div>
+			<h3>
+				蜂窝槑
+			</h3>
+		</div>
+
+
+		<div class="right">
+			<div class="right_content"><img src="images/01.jpg" width="80px" height="80px"></div>
+			<div class="right_content"><img src="images/02.png" width="80px" height="80px"></div>
+			<div class="right_content"><img src="images/03.jpg" width="80px" height="80px"></div>
+			<div class="right_content"><img src="images/04.jpg" width="80px" height="80px"></div>
+
+		</div>
+
+
+		<div class="content">
+		<h2>蜂窝槑</h2>
+		<p>
+			不同于其他来自校园的学习小组，我们是一个由已经走上工作岗位的几个前端小伙伴所组建的队伍，平时工作繁忙，加班任务重，只是偶尔抽时间来完成百度前端技术学院所发布的一些任务。每个人所擅长的技术方向并不一致，也希望借助这次学习机会，深化自身对于基础知识的了解，尤其是CSS3和原生JavaScript的一些用法，取众人之所长，增补自身之不足。为的是始终保持学习的兴趣，以及对于前端新技术和新知识的敏感度。
+		</p>
+		<h3>知识点</h3>
+		<ul>
+			<li>
+				浮动
+				<p>该页面主要使用浮动方法进行三栏式布局，左右两边各自左右浮动</p>
+			</li>
+			<li>清除浮动
+			<p>left设置浮动之后，由于脱离了文档流，造成最外层的box高度塌陷，所以要在box上进行清除浮动造成的影响（高度塌陷）,使用<a href="http://www.zhangxinxu.com/wordpress/2010/01/css-float%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6%E3%80%81%E8%AF%A6%E8%A7%A3%E5%8F%8A%E6%8B%93%E5%B1%95%E4%BA%8C/">张鑫旭推荐的方法</a>，未考虑IE浏览器的兼容问题</p>
+			<code>
+			.box:after{display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}
+			</code>
+			</li>
+			<li>页面结构</li>
+			<p>注：由于样式简单，直接在style标签中写了CSS样式，工程中，一般有独立的CSS文件。
+			因为中间内容的自适应宽度是用margin-left和margin-right共同控制达到自适应伸缩的 ，未设置浮动，所以在先对left设置浮动之后，content会上升占据box的顶端，此时display均为block,所以right部分即使设置了右浮动还是会被content压制在下方，这是浏览器引擎渲染页面时读取html文件时的顺序决定的。
+			我们的代码就把right和content的顺序进行了调换。其实，还可以使用其他能方式，比如对content设置浮动或display:inline-block方法来实现目的</p>
+		</ul>
+			
+		</div
+	</div>
+</body>
+</html>
