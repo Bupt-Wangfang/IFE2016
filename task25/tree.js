@@ -132,7 +132,7 @@ function onSearch(){
         }
 
     };
-    var color=Math.floor(3+7*Math.random())*100+Math.floor(6+4*Math.random())*10+Math.floor(4+6*Math.random());
+    var color=Math.floor(2+8*Math.random())*100+Math.floor(2+8*Math.random())*10+Math.floor(2+8*Math.random());
     getChild(tree,search);
     alert('共找到'+count+'个同名文件');
 }
